@@ -1,6 +1,7 @@
 {
   "name": "my-vue-project",
   "version": "1.0.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -12,10 +13,14 @@
     "axios": "^1.5.0",
     "date-fns": "^2.30.0",
     "pinia": "^2.0.35",
+    "v-calendar": "^3.1.2",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
+    "vue-router": "^4.2.4",
+    "vue3-datepicker": "^0.4.0"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.2",
+    "@vue/compiler-sfc": "^3.5.25",
     "vite": "^5.0.0"
   }
 }
