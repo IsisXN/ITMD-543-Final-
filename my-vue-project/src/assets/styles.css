@@ -1,51 +1,88 @@
+/* styles.css */
+
+/* Purple color variables */
 :root {
-  --purple-darkest: #0d001a;
-  --purple-dark: #1a0033;
-  --purple: #3d0066;
-  --purple-light: #6a1b9a;
-  --purple-accent: #bb86fc;
-  --text-light: #e7dffc;
-  --text-muted: #c8b8e6;
+  --color-bg: #1f0a30;          /* Deep purple background */
+  --color-bg-light: #2a0d3a;    /* Slightly lighter container bg */
+  --color-primary: #7a3fff;     /* Primary buttons, links */
+  --color-primary-hover: #9b59ff;
+  --color-text: #f3f0f7;        /* Main text */
+  --color-text-light: #d1baff;  /* Labels, secondary text */
+  --color-border: #5a2a7a;      /* Borders */
+  --color-accent: #e0c6ff;      /* Headings and highlights */
+  --color-success: #a3ffeb;     /* Messages / success */
+  --color-error: #ff7d7d;       /* Error messages */
 }
 
-/* Apply dark theme globally */
+/* Apply global background and text */
 body {
-  background-color: var(--purple-darkest);
-  color: var(--text-light);
-  font-family: 'Inter', sans-serif;
-}
-
-/* Buttons */
-button {
-  background: var(--purple);
-  color: var(--text-light);
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  border: none;
-  transition: 0.3s ease;
-}
-
-button:hover {
-  background: var(--purple-light);
-}
-
-/* Cards, modals, containers */
-.container, .card, .modal {
-  background: var(--purple-dark);
-  border: 1px solid var(--purple-light);
-  border-radius: 12px;
-  padding: 1rem;
-}
-
-/* Headings */
-h1, h2, h3, h4 {
-  color: var(--purple-accent);
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Links */
 a {
-  color: var(--purple-accent);
+  color: var(--color-primary);
+  text-decoration: none;
 }
+
 a:hover {
-  color: var(--text-light);
+  color: var(--color-primary-hover);
+}
+
+/* Container elements */
+.container {
+  background-color: var(--color-bg-light);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons */
+button {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Inputs and textareas */
+input, textarea, select {
+  background-color: #3b1e5a;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 6px var(--color-primary);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-accent);
+}
+
+/* Form labels */
+label {
+  color: var(--color-text-light);
+}
+
+/* Messages */
+.message {
+  color: var(--color-success);
 }
