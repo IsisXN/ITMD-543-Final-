@@ -3,6 +3,7 @@
     <h1>Book a Session</h1>
 
     <form @submit.prevent="submit" novalidate style="max-width:700px;margin-top:1rem;">
+      
       <div>
         <label>Full name</label>
         <input v-model="form.name" required />
@@ -18,7 +19,7 @@
         <input type="tel" v-model="form.phone" />
       </div>
 
-      <div style="display:flex;gap:.5rem;">
+      <div style="display:flex; gap:.5rem;">
         <div style="flex:1;">
           <label>Date</label>
           <input type="date" v-model="form.date" :min="today" required />
@@ -38,7 +39,10 @@
         <button class="btn" type="submit">Submit Booking</button>
       </div>
 
-      <div v-if="message" style="margin-top:1rem;color:green;">{{ message }}</div>
+      <div v-if="message" style="margin-top:1rem; color:green;">
+        {{ message }}
+      </div>
+
     </form>
   </section>
 </template>
@@ -75,9 +79,6 @@ export default {
       }
 
       store.addBooking(booking)
-
-      // Optional: send to an API using axios:
-      // axios.post('/api/bookings', booking)
 
       message.value = 'Thanks! Your booking request has been saved. I will contact you soon.'
       form.value = { name:'', email:'', phone:'', date:'', time:'', details:'' }
