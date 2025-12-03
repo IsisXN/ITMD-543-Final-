@@ -1,0 +1,18 @@
+[
+  {
+    "id": "exelon-1",
+    "title": "Exelon Workshop — Team Portrait",
+    "description": "Group portrait at Exelon Summer Institute 2024.",
+    "src": "/src/assets/photos/exelon1.jpg",
+    "tags": ["exelon", "portrait", "event"],
+    "dateTaken": "2024-06-12"
+  },
+  {
+    "id": "exelon-2",
+    "title": "Exelon — Classroom",
+    "description": "Instructor and students during the weekly session.",
+    "src": "/src/assets/photos/exelon2.jpg",
+    "tags": ["exelon", "class", "candid"],
+    "dateTaken": "2024-06-10"
+  }
+]
