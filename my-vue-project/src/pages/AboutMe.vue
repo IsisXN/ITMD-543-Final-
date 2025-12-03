@@ -2,8 +2,11 @@
   <section class="container" style="padding:2rem 1rem;">
     <h1>About Me</h1>
     <p class="lead">
-      Hi my name is <strong>Isis Navarro</strong>. I'm passionate about photography and creative expression.
-      I served as a Media TA for <strong>2 years</strong>, and last year I was Lead Media TA where I photographed the Exelon Summer Institute and coordinated weekly classes on topics like lighting, composition, and post-processing.
+      Hi my name is <strong>Isis Navarro</strong>. I’m passionate about photography, creative expression, and building community through the arts. 
+      I’ve been part of the Photography Club at IIT for three years serving as public relations chair for two years, where I managed outreach, branding, and event promotion. 
+      This year, I’m proud to serve as President of the club. In this role, I organize headshot events, lead workshops, mentor new members, and help create a welcoming environment for students to share their artistry. 
+      One of my biggest accomplishments was establishing a partnership between our club and Career Services, giving student photographers more visibility and professional opportunities. 
+      Alongside photography, I’ve also gained valuable instructional experience as a Teaching Assistant, where I developed strong communication, leadership, and student support skills.
     </p>
 
     <div style="background:#f8fafc;padding:1rem;border-radius:10px;margin-top:1rem;">
