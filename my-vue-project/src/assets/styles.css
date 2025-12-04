@@ -150,3 +150,12 @@ button {
   background-color: #9b5fc0; /* lighter hover shade */
 }
 
+:root{
+  --nav-height: 72px; /* adjust this value until content sits below the navbar */
+}
+
+/* push main content down by the nav height plus a little breathing room */
+main {
+  padding-top: calc(var(--nav-height) + 12px);
+}
+
