@@ -2,30 +2,48 @@
   <div class="page-container">
     <h1>Book a Session</h1>
     
-<form 
-  name="booking" 
-  method="POST" 
-  data-netlify="true" 
-  action="/thank-you"
- @submit.prevent="submitForm($event)"
- >
-  <input type="hidden" name="form-name" value="booking" />
+    <form 
+      name="booking" 
+      method="POST" 
+      data-netlify="true" 
+      @submit.prevent="submitForm"
+    >
+      <input type="hidden" name="form-name" value="booking" />
+
       <!-- Name -->
       <div class="form-group">
         <label for="name">Name</label>
-        <input id="name" type="text" v-model="form.name" placeholder="Your full name" />
+        <input 
+          id="name" 
+          type="text" 
+          v-model="form.name" 
+          placeholder="Your full name" 
+          required
+        />
       </div>
 
       <!-- Email -->
       <div class="form-group">
         <label for="email">Email</label>
-        <input id="email" type="email" v-model="form.email" placeholder="you@example.com" />
+        <input 
+          id="email" 
+          type="email" 
+          v-model="form.email" 
+          placeholder="you@example.com"
+          required
+        />
       </div>
 
       <!-- Phone -->
       <div class="form-group">
         <label for="phone">Phone</label>
-        <input id="phone" type="tel" v-model="form.phone" placeholder="(123) 456-7890" />
+        <input 
+          id="phone" 
+          type="tel" 
+          v-model="form.phone" 
+          placeholder="(123) 456-7890"
+          required
+        />
       </div>
 
       <!-- Session Type -->
@@ -41,26 +59,30 @@
       <!-- Session Details -->
       <div class="form-group">
         <label>Session Details</label>
-        <textarea v-model="form.details" rows="4" placeholder="Describe the shoot: location, number of people, mood, props, etc."></textarea>
+        <textarea 
+          v-model="form.details" 
+          rows="4" 
+          placeholder="Describe the shoot: location, number of people, mood, props, etc."
+          required
+        ></textarea>
       </div>
 
       <!-- Date -->
       <div class="form-group">
         <label>Date</label>
-        <input type="date" v-model="form.date" />
+        <input type="date" v-model="form.date" required />
       </div>
 
       <!-- Time -->
       <div class="form-group">
         <label>Time</label>
-        <input type="time" v-model="form.time" />
+        <input type="time" v-model="form.time" required />
       </div>
 
       <!-- Submit Button -->
       <div class="form-group">
         <button type="submit" :disabled="!isFormComplete">Submit Booking</button>
       </div>
-
     </form>
   </div>
 </template>
@@ -91,18 +113,37 @@ export default {
              this.form.time;
     }
   },
- methods: {
-  submitForm(event) {
-    if (!this.isFormComplete) {
-      alert('Please fill out all fields before submitting.');
-      return;
+  methods: {
+    submitForm() {
+      if (!this.isFormComplete) {
+        alert('Please fill out all fields before submitting.');
+        return;
+      }
+
+      const formData = new FormData();
+      Object.keys(this.form).forEach(key => formData.append(key, this.form[key]));
+      formData.append('form-name', 'booking');
+
+      fetch('/', {
+        method: 'POST',
+        body: formData
+      })
+      .then(() => {
+        alert('Booking submitted successfully!');
+        // reset form after successful submission
+        this.form = {
+          name: '',
+          email: '',
+          phone: '',
+          type: '',
+          details: '',
+          date: '',
+          time: ''
+        };
+      })
+      .catch(() => alert('Error submitting booking.'));
     }
-
-    // Let Netlify process the form
-    event.target.submit();
   }
-}
-
 }
 </script>
 
@@ -110,8 +151,8 @@ export default {
 .page-container {
   max-width: 600px;
   margin: auto;
-  padding: 2rem;
-  background-color: #2b0d3f; /* deep purple */
+  padding: 3rem 2rem 2rem 2rem;
+  background-color: #2b0d3f;
   color: #f0f0f0;
   border-radius: 10px;
   box-sizing: border-box;
@@ -164,7 +205,7 @@ button {
   width: 100%;
   padding: 0.8rem 1.5rem;
   border-radius: 8px;
-  background-color: #7b3fa6; /* deep purple button */
+  background-color: #7b3fa6;
   color: #f0f0f0;
   font-weight: bold;
   border: none;
@@ -174,22 +215,11 @@ button {
 }
 
 button:disabled {
-  background-color: #a08bbf; /* lighter disabled color */
+  background-color: #a08bbf;
   cursor: not-allowed;
 }
 
 button:hover:not(:disabled) {
-  background-color: #933cb0; /* slightly brighter on hover */
+  background-color: #933cb0;
 }
 </style>
-
-.page-container {
-  max-width: 600px;
-  margin: auto;
-  padding: 3rem 2rem 2rem 2rem; /* increased top padding to move below navbar */
-  background-color: #2b0d3f; /* deep purple */
-  color: #f0f0f0;
-  border-radius: 10px;
-  box-sizing: border-box;
-}
-
