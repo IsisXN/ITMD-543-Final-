@@ -2,8 +2,13 @@
   <div class="page-container">
     <h1>Book a Session</h1>
     
-    <form @submit.prevent="submitForm" class="bookings-form">
-
+<form 
+  name="booking" 
+  method="POST" 
+  data-netlify="true" 
+@submit.prevent="submitForm($event)"
+>
+  <input type="hidden" name="form-name" value="booking" />
       <!-- Name -->
       <div class="form-group">
         <label for="name">Name</label>
@@ -85,15 +90,18 @@ export default {
              this.form.time;
     }
   },
-  methods: {
-    submitForm() {
-      if (this.isFormComplete) {
-        alert('Booking submitted successfully!');
-      } else {
-        alert('Please fill out all fields before submitting.');
-      }
+ methods: {
+  submitForm(event) {
+    if (!this.isFormComplete) {
+      alert('Please fill out all fields before submitting.');
+      return;
     }
+
+    // Let Netlify process the form
+    event.target.submit();
   }
+}
+
 }
 </script>
 
