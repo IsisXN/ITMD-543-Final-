@@ -1,92 +1,145 @@
 <template>
-  <section class="container" style="padding:2rem 1rem;">
+  <div class="page-container">
     <h1>Book a Session</h1>
 
-    <form @submit.prevent="submit" novalidate style="max-width:700px;margin-top:1rem;">
-      
-      <div>
-        <label>Full name</label>
-        <input v-model="form.name" required />
+    <form @submit.prevent="submitForm" class="bookings-form">
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" type="text" v-model="form.name" placeholder="Your full name" />
       </div>
 
-      <div>
-        <label>Email</label>
-        <input type="email" v-model="form.email" required />
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" v-model="form.email" placeholder="you@example.com" />
       </div>
 
-      <div>
-        <label>Phone</label>
-        <input type="tel" v-model="form.phone" />
+      <!-- Phone -->
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input id="phone" type="tel" v-model="form.phone" placeholder="(123) 456-7890" />
       </div>
 
-      <div style="display:flex; gap:.5rem;">
-        <div style="flex:1;">
-          <label>Date</label>
-          <input type="date" v-model="form.date" :min="today" required />
+      <!-- Session Type -->
+      <div class="form-group">
+        <label>Session Type</label>
+        <div class="radio-group">
+          <label><input type="radio" value="Portrait" v-model="form.type" /> Portrait</label>
+          <label><input type="radio" value="Event" v-model="form.type" /> Event</label>
+          <label><input type="radio" value="Other" v-model="form.type" /> Other</label>
         </div>
-        <div style="flex:1;">
-          <label>Time</label>
-          <input type="time" v-model="form.time" required />
-        </div>
       </div>
 
-      <div>
+      <!-- Session Details -->
+      <div class="form-group">
         <label>Session Details</label>
         <textarea v-model="form.details" rows="4" placeholder="Describe the shoot: location, number of people, mood, props, etc."></textarea>
       </div>
 
-      <div style="margin-top:.6rem;">
-        <button class="btn" type="submit">Submit Booking</button>
+      <!-- Date -->
+      <div class="form-group">
+        <label for="date">Preferred Date</label>
+        <input id="date" type="date" v-model="form.date" />
       </div>
 
-      <div v-if="message" style="margin-top:1rem; color:green;">
-        {{ message }}
+      <!-- Time -->
+      <div class="form-group">
+        <label for="time">Preferred Time</label>
+        <input id="time" type="time" v-model="form.time" />
       </div>
 
+      <button type="submit">Submit Booking</button>
     </form>
-  </section>
+  </div>
 </template>
 
 <script>
-import { ref } from 'vue'
-import { useBookingStore } from '../store/useBookingStore'
-import { formatISO } from 'date-fns'
-
 export default {
-  setup() {
-    const store = useBookingStore()
-    const today = new Date().toISOString().split('T')[0]
-    const form = ref({
-      name: '',
-      email: '',
-      phone: '',
-      date: '',
-      time: '',
-      details: ''
-    })
-    const message = ref('')
-
-    function submit() {
-      if (!form.value.name || !form.value.email || !form.value.date || !form.value.time) {
-        message.value = 'Please fill all required fields (name, email, date, time).'
-        return
+  name: "Bookings",
+  data() {
+    return {
+      form: {
+        name: "",
+        email: "",
+        phone: "",
+        type: "",
+        details: "",
+        date: "",
+        time: ""
       }
-
-      const booking = {
-        id: 'b_' + Date.now(),
-        ...form.value,
-        createdAt: formatISO(new Date())
-      }
-
-      store.addBooking(booking)
-
-      message.value = 'Thanks! Your booking request has been saved. I will contact you soon.'
-      form.value = { name:'', email:'', phone:'', date:'', time:'', details:'' }
+    };
+  },
+  methods: {
+    submitForm() {
+      alert(`Booking submitted for ${this.form.name} on ${this.form.date} at ${this.form.time}!`);
+      // Reset form
+      this.form = {
+        name: "",
+        email: "",
+        phone: "",
+        type: "",
+        details: "",
+        date: "",
+        time: ""
+      };
     }
-
-    return { form, submit, message, today }
   }
-}
+};
 </script>
 
-<style scoped></style>
+<style scoped>
+.page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #f0f0f0; /* text color for dark theme */
+}
+
+.bookings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.bookings-form input,
+.bookings-form textarea {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #a084c2;
+  background-color: #3b1e5a;
+  color: #f0f0f0;
+}
+
+.bookings-form input:focus,
+.bookings-form textarea:focus {
+  border-color: #7b3fa6;
+  outline: none;
+  box-shadow: 0 0 6px #7b3fa6;
+}
+
+.bookings-form button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  background-color: #7b3fa6;
+  color: #f0f0f0;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.bookings-form button:hover {
+  background-color: #9b5fc0;
+}
+</style>
