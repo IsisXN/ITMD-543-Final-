@@ -147,7 +147,7 @@ button {
 }
 
 .bookings-form button:hover {
-  background-color: #9b5fc0; /* lighter hover shade */
+  background-color: #000080; /* lighter hover shade */
 }
 
 :root{
