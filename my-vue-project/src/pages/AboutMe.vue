@@ -18,7 +18,7 @@
       <h2>Experience Highlights</h2>
       <ul>
         <p class="lead"><strong>Photography Club President</strong></p>
-        <li>Manage partnerships with campus departments—including Career Services—and external collaborators to expand event opportunities and increase club resources.</li>
+        <li>Manage partnerships with campus departments including Career Services and external collaborators to expand event opportunities and increase club resources.</li>
         <li>Develop annual programming goals, budgets, and event calendars to boost member engagement and strengthen the club’s campus presence.</li>
         <li>Lead organizational strategy, oversee daily operations, and coordinate major events, exhibitions, and workshops.</li>
         <li>Mentor new members and guide the PR, events, and outreach teams to maintain a welcoming, creative environment.</li>
@@ -63,22 +63,26 @@ export default {
 </script>
 
 <style scoped>
-/* Button styling to match booking submit button */
+/* 🎨 Button styling EXACTLY matching "Submit Booking" button */
 .btn-primary {
   padding: 0.8rem 1.5rem;
   border-radius: 8px;
-  background-color: #7b3fa6; /* deep purple */
+  background-color: #7b3fa6; /* deep purple - same as booking button */
   color: #f0f0f0;
   font-weight: bold;
   cursor: pointer;
   border: none;
   text-decoration: none;
-}
-.btn-primary:hover {
-  background-color: #9b5fc0;
+  font-size: 1rem;
+  display: inline-block;
+  transition: background-color 0.2s;
 }
 
-/* Optional spacing improvements for readability */
+.btn-primary:hover {
+  background-color: #9b5fc0; /* hover color same as booking button */
+}
+
+/* Spacing */
 .lead {
   margin-bottom: 0.8rem;
 }
