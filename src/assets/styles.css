@@ -1,0 +1,180 @@
+/* styles.css */
+
+/* Purple color variables */
+:root {
+  --color-bg: #1f0a30;          /* Deep purple background */
+  --color-bg-light: #2a0d3a;    /* Slightly lighter container bg */
+  --color-primary: #7a3fff;     /* Primary buttons, links */
+  --color-primary-hover: #9b59ff;
+  --color-text: #f3f0f7;        /* Main text */
+  --color-text-light: #d1baff;  /* Labels, secondary text */
+  --color-border: #5a2a7a;      /* Borders */
+  --color-accent: #e0c6ff;      /* Headings and highlights */
+  --color-success: #a3ffeb;     /* Messages / success */
+  --color-error: #ff7d7d;       /* Error messages */
+}
+
+/* Apply global background and text */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Container elements */
+.container {
+  background-color: var(--color-bg-light);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons */
+button {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Inputs and textareas */
+input, textarea, select {
+  background-color: #3b1e5a;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 6px var(--color-primary);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-accent);
+}
+
+/* Form labels */
+label {
+  color: var(--color-text-light);
+}
+
+/* Messages */
+.message {
+  color: var(--color-success);
+}
+
+button {
+  background: linear-gradient(135deg, #7a3fff, #9b59ff);
+}
+.container {
+  background: linear-gradient(145deg, #1f0a30, #2a0d3a);
+}
+
+/* Page container for spacing */
+.page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #f0f0f0; /* light text for dark theme */
+}
+
+/* Form spacing */
+.bookings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* space between form sections */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* space between label and input */
+}
+
+.radio-group {
+  display: flex;
+  gap: 1rem; /* space between radio buttons */
+}
+
+.bookings-form input,
+.bookings-form textarea {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #a084c2; /* lighter purple border */
+  background-color: #3b1e5a; /* dark purple background */
+  color: #f0f0f0; /* text visible */
+}
+
+.bookings-form input:focus,
+.bookings-form textarea:focus {
+  border-color: #7b3fa6; /* highlight border */
+  outline: none;
+  box-shadow: 0 0 6px #7b3fa6;
+}
+
+.bookings-form button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  background-color: #7b3fa6; /* purple button */
+  color: #f0f0f0;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.bookings-form button:hover {
+  background-color: #9b5fc0; /* lighter hover shade */
+}
+
+:root{
+  --nav-height: 72px; /* adjust this value until content sits below the navbar */
+}
+
+/* push main content down by the nav height plus a little breathing room */
+main {
+  padding-top: calc(var(--nav-height) + 12px);
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 1.25rem; /* spacing between cards */
+  justify-items: center;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.photo-desc {
+  display: block;       /* make sure description is visible */
+  color: #4b0082;       /* dark purple */
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
