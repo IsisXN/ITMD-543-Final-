@@ -58,7 +58,7 @@ button:hover {
 
 /* Inputs and textareas */
 input, textarea, select {
-  background-color: #000080;
+  background-color: #361e5a;
   color: var(--color-text);
   border: 1px solid var(--color-border);
   border-radius: 8px;
