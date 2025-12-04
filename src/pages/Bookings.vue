@@ -6,6 +6,7 @@
   name="booking" 
   method="POST" 
   data-netlify="true" 
+    action="/thank-you"
 @submit.prevent="submitForm($event)"
 >
   <input type="hidden" name="form-name" value="booking" />
