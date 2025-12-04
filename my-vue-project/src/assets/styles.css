@@ -159,3 +159,22 @@ main {
   padding-top: calc(var(--nav-height) + 12px);
 }
 
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 1.25rem; /* spacing between cards */
+  justify-items: center;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.photo-desc {
+  display: block;       /* make sure description is visible */
+  color: #4b0082;       /* dark purple */
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
