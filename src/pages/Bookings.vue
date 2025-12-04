@@ -2,8 +2,7 @@
   <div class="page-container">
     <h1>Book a Session</h1>
     
-    <form 
-      name="booking" 
+    <form name="booking" netlify>
       method="POST" 
       data-netlify="true" 
       @submit.prevent="submitForm"
