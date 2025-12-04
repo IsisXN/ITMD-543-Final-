@@ -7,7 +7,7 @@
       data-netlify="true" 
       @submit.prevent="submitForm"
     >
-      <input type="hidden" name="form-name" value="booking" />
+      <input type="hidden" name="form-name" value="booking">
 
       <!-- Name -->
       <div class="form-group">
