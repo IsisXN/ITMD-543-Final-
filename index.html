@@ -8,6 +8,21 @@
   </head>
   <body>
     <div id="app"></div>
+
+    <!-- Hidden static form for Netlify -->
+    <form name="booking" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="radio" name="type" value="Portrait" />
+      <input type="radio" name="type" value="Event" />
+      <input type="radio" name="type" value="Other" />
+      <textarea name="details"></textarea>
+      <input type="date" name="date" />
+      <input type="time" name="time" />
+      <input type="hidden" name="form-name" value="booking" />
+    </form>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
