@@ -55,7 +55,6 @@ button {
 button:hover {
   background-color: var(--color-primary-hover);
 }
-
 /* Inputs and textareas */
 input, textarea, select {
   background-color: #361e5a;
